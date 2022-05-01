@@ -2,5 +2,6 @@
   "name": "Raj",
   "dept": "IT",
   "id": 52896,
-  "age": 30
+  "age": 30,
+  "project": {"name": ["Login Module", "Sign Up Page"], "tenure": 3}
 }

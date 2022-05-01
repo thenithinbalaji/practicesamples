@@ -17,5 +17,6 @@ student_dict = {'name': 'Gil', 'age': 20,
 
 def getStudentDataAsJson():
     # Read the dictionary as String into student_data_json variable.
+    student_data_json = json.dumps(student_dict)
 
     return student_data_json

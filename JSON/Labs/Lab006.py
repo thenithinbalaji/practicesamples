@@ -24,4 +24,11 @@ class Employee(object):
 
 def readEmployeeFromJSONFile():
 
+    f = open("Employee.json")
+    employee_data = json.load(f)
+    f.close()
+
+    empObject = Employee(employee_data["name"], employee_data["dept"], employee_data["id"], employee_data["age"])
+
+
     return empObject

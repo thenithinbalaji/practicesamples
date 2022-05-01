@@ -20,11 +20,17 @@ import json
 
 def readEmployeeFromJSONFile():
     # Write code to open the file
-
+    f = open("Employee.json")
+    
     # Load json data as python object.
-
+    employee_data = json.load(f)
+    
     # hint : explore json library
+    employee_data['manager'] = 'Alice'
+    employee_data['yearsofexp'] = 5
 
     # update dictionary to have new attributes
-
+    #employee_data = dict.copy()
+    f.close()
+    
     return employee_data

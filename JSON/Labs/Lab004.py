@@ -21,7 +21,8 @@ import json
 
 def readEmployeeFromJSONFile():
     # Write code to open the file
-
+    f = open("Employee.json")
     # Load json data as python object.
-
+    employee_data = json.load(f)
+    f.close()
     return employee_data
