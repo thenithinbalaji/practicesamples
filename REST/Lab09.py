@@ -1,4 +1,8 @@
-
+from urllib import response
+from RestRef import *
+import requests
+import unittest
+from types import SimpleNamespace
 '''
 Problem Statement :
 Call the REST API to GET oen particular Employee details and print all the details of the employee in json format.
@@ -12,8 +16,6 @@ Pass that id to get employee by ID API to fetch that ID
 Use json, requests modules.
 Refer RestRef file for code usage & references
 '''
-import unittest
-
 
 # Use request module to call a GET REST API for employees
 
@@ -31,13 +33,13 @@ def getEmployeeById(id):
 
     # Use request module to call a GET REST API for employees by Id
     # Check the URL to have employee ID passed
-     employeeObject = << get Employee by Id >>
+    response = requests.get(str("http://localhost:8080/employees/" + str(id)))
     # print the response content
-
+    print(response)
     # use json.dumps to convert response into string
-
+    print(json.dumps(response.json(), indent=4))
     # refer reference to convert json string into a python object
-
+    employeeObject = json.loads(json.dumps(response.json()), object_hook=lambda d: SimpleNamespace(**d))
     # return python object
     return employeeObject
 
