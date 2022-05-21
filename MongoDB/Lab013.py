@@ -17,12 +17,14 @@ The document is available only after it is inserted in the DB
 def createBookDocuments():
 
     # connect to 'Library' data base in MongoDB
-
     # connect to 'Books' collection
-
+    collections = getCollectionsFromLibraryDB("Books")
     # user insert_many() method to create the document in MongoDB
-
-    inserted_doc_id = << Insert_Many call >>
+    dict = [{"Title":"Concepts of Physics", "Author":"HC Verma", "ISBN":93842},
+            {"Title":"Concepts of Physics 2", "Author":"HC Verma", "ISBN": 83992},
+            {"Title":"Python Programming", "Author":"Guido Van Russom", "ISBN":28923}
+    ]
+    inserted_doc_id = collections.insert_many(dict)
 
     return inserted_doc_id
 

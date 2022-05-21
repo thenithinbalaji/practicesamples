@@ -1,4 +1,7 @@
 import unittest
+
+from matplotlib import collections
+from numpy import insert
 from mongosetup import *
 
 
@@ -19,12 +22,12 @@ The id could be used to query the document later.
 def createBookDocument():
 
     # connect to 'Library' data base in MongoDB
-
+    collections = getCollectionsFromLibraryDB("Books")
     # connect to 'Books' collection
 
     # user insertOne() method to create the document in MongoDB
 
-    inserted_doc_id = << Insert Method call>>
+    inserted_doc_id = collections.insert_one({"Title": "Theory of everything", "Author":"Stephan Hawking", "ISBN":11234})
 
     return inserted_doc_id
 

@@ -17,11 +17,10 @@ The document is available only after it is inserted in the DB
 def createBookDocument():
 
     # connect to 'Library' data base in MongoDB
-
+    collection = getCollectionsFromLibraryDB("Books")
     # connect to 'Books' collection
-
     # user insertOne() method to create the document in MongoDB
-
+    collection.insert_one({"Title": "The Alchemist", "Author":"Paulo Coelho", "ISBN":23232})
     return
 
 

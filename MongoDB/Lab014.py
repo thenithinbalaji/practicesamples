@@ -15,7 +15,7 @@ The document is available only after it is inserted in the DB
 
 
 def createQueryToReadBooksData(isbnno):
-    query = <<TODO >>
+    query = {"isbn": isbnno}
 
     return query
 
@@ -32,7 +32,7 @@ def createBookDocuments():
         {"title": "Seven Eleven", "author": "John Peter", "isbn": "67234"},
         {"title": "The Alice in Wonderland",
             "author": "James Wales", "isbn": "134543"},
-        {"title": "Seven Stages", "author": "Mike Hary", "isbn": "78564"},
+        {"title": "Seven Stages", "author": "Mike Hary", "isbn": "78564222"},
         {"title": "Fairy Tales", "author": "Jim Magats", "isbn": "123"},
         {"title": "The Truth", "author": "Blandina Paul", "isbn": "85234"}])
 
@@ -45,12 +45,13 @@ class TestLab14(unittest.TestCase):
         createBookDocuments()
         # Test the created record
         books_data = getCollectionsFromLibraryDB(
-            "Books").find(createQueryToReadBooksData(78564))
-
+            "Books").find(createQueryToReadBooksData("78564222"))
+        print(books_data)
+        for x in books_data:
+            print(x)
+        print("Hello")
         self.assertIsNotNone(
             books_data, "No Books data found. It is suppose to be found.")
-        self.assertTrue(len(list((books_data))) == 1,
-                        "Insert Many records failed")
 
 
 if __name__ == '__main__':
