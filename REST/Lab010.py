@@ -13,7 +13,9 @@ Use json, requests modules.
 Refer RestRef file for code usage & references
 '''
 import unittest
-
+import json
+import requests
+from types import SimpleNamespace
 
 # Use request module to call a GET REST API for employees
 
@@ -28,9 +30,10 @@ import unittest
 
 
 def createEmployee(firstName, lastName, role):
-
+    edict = {"firstName": firstName, "lastName": lastName, "role":role }
+    response = requests.post("http://localhost:8080/employees/", json = edict)
+    newEmployeeObject = json.loads(json.dumps(response.json()), object_hook=lambda d: SimpleNamespace(**d))
     return newEmployeeObject
-
 
 class TestLab10(unittest.TestCase):
 
